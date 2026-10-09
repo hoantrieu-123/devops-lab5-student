@@ -45,3 +45,7 @@ def main():
         print(f"  {student}")
 
     print(f"\nTotal: {len(students)} students")
+
+
+if __name__ == "__main__":
+    main()
