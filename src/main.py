@@ -3,7 +3,29 @@ Student Manager — DevOps Lab 5
 Module: Main Application
 """
 from student import Student
+def add_student(students: list, student_id: str, name: str, age: int, grade: str) -> list:
+    """Thêm sinh viên mới vào danh sách.
 
+    Args:
+        students: Danh sách sinh viên hiện tại
+        student_id: Mã sinh viên
+        name: Họ tên
+        age: Tuổi
+        grade: Khóa
+
+    Returns:
+        Danh sách sinh viên đã được cập nhật
+    """
+    # Kiểm tra trùng mã sinh viên
+    for s in students:
+        if s.student_id == student_id:
+            print(f"❌ Mã sinh viên {student_id} đã tồn tại!")
+            return students
+
+    new_student = Student(student_id, name, age, grade)
+    students.append(new_student)
+    print(f"Đã thêm sinh viên: {new_student}")
+    return students
 def search_student(students: list, keyword: str) -> list:
     """Tìm kiếm sinh viên theo tên hoặc mã.
 
